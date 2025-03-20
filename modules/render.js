@@ -8,7 +8,7 @@ export function renderComments(commentList, commentInput, nameInput) {
       <li class="comment" data-index="${index}">
         <div class="comment-header">
           <div>${sanitizeHTML(comment.name)}</div>
-          <div>${comment.date}</div>
+          <div>${new Date(comment.date).toLocaleString()}</div>
         </div>
         <div class="comment-body">
           <div class="comment-text">${sanitizeHTML(comment.text)}</div>
@@ -25,5 +25,4 @@ export function renderComments(commentList, commentInput, nameInput) {
     `
     )
     .join("");
-
 }
