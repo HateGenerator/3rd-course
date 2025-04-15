@@ -19,6 +19,7 @@ export const fetchComments = () => {
         text: comment.text,
         likes: comment.likes || 0,
         isLiked: comment.isLiked || false,
+        isLikeLoading: false, // Добавляем поле
       }));
     })
     .catch((error) => {
