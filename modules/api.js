@@ -1,4 +1,4 @@
-const host = 'https://wedev-api.sky.pro/api/v1/sam-polyakov'; // Ваш personal-key
+const host = 'https://wedev-api.sky.pro/api/v1/sam-polyakov'; // personal-key
 
 export const fetchComments = () => {
   return fetch(`${host}/comments`, {
@@ -6,7 +6,7 @@ export const fetchComments = () => {
   })
     .then((res) => {
       if (!res.ok) {
-        throw new Error("Ошибка при загрузке комментариев");
+        throw new Error(`Ошибка при загрузке комментариев: ${res.status}`);
       }
       return res.json();
     })
@@ -28,7 +28,7 @@ export const fetchComments = () => {
 };
 
 export const postComment = (text, name) => {
-  console.log("API sending:", { text, name });
+  console.log("API sending:", { text, name }); // Отладка
   return fetch(`${host}/comments`, {
     method: "POST",
     body: JSON.stringify({
@@ -36,15 +36,14 @@ export const postComment = (text, name) => {
       name,
     }),
   })
-    .then((res) => {
+    .then(async (res) => {
       if (!res.ok) {
         if (res.status === 400) {
-          return res.json().then((errorData) => {
-            console.log("Server error response:", errorData); // Отладка
-            throw new Error(errorData.error);
-          });
+          const errorData = await res.json();
+          console.log("Server error response:", errorData); // Отладка
+          throw new Error(errorData.error);
         }
-        throw new Error("Ошибка сервера при отправке комментария");
+        throw new Error(`Ошибка сервера при отправке комментария: ${res.status}`);
       }
       return res.json();
     })

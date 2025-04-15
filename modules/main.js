@@ -1,4 +1,4 @@
-console.log("main.js loaded successfully"); // Добавьте эту строку в начало
+console.log("main.js loaded successfully"); 
 
 import { fetchComments, postComment } from "./api.js";
 import { renderComments } from "./render.js";
@@ -6,7 +6,7 @@ import { comments, updateComments } from "./comments.js";
 import { addEventListeners } from "./eventHandlers.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-  console.log("DOM loaded, starting app"); // Добавьте для отладки
+  console.log("DOM loaded, starting app"); 
   const nameInput = document.querySelector(".add-form-name");
   const commentInput = document.querySelector(".add-form-text");
   const addButton = document.querySelector(".add-form-button");
