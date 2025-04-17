@@ -18,7 +18,7 @@ export function renderComments(commentList, commentInput, nameInput) {
             <span class="likes-counter">${comment.likes}</span>
             <button class="like-button ${
               comment.isLiked ? "-active-like" : ""
-            }" data-index="${index}"></button>
+            } ${comment.isLikeLoading ? "-loading-like" : ""}" data-index="${index}"></button>
           </div>
         </div>
       </li>
