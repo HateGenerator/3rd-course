@@ -36,7 +36,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // Загрузка комментариев при старте
   loadAndRenderComments();
 
-  // Функция для обработки отправки комментария с повтором при 500-й ошибке
   const handlePostClick = (attempts = 3) => {
     const name = nameInput.value.trim();
     const text = commentInput.value.trim();
@@ -53,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
     addForm.style.opacity = "0";
     if (addingIndicator) addingIndicator.style.display = "block";
 
-    postComment(text, name, true)
+    postComment(text, name, true) 
       .then(() => {
         comments.push({
           id: Date.now(),
@@ -68,18 +67,16 @@ document.addEventListener("DOMContentLoaded", () => {
         addEventListeners(comments, commentList, commentInput, nameInput, renderComments);
         nameInput.value = "";
         commentInput.value = "";
+        addForm.style.opacity = "1";
+        if (addingIndicator) addingIndicator.style.display = "none";
       })
       .catch((error) => {
         console.error("Ошибка:", error);
         if (error.message === "Сервер сломался, попробуй позже" && attempts > 1) {
           console.log(`Retrying... Attempts left: ${attempts - 1}`);
-          handlePostClick(attempts - 1);
+          setTimeout(() => handlePostClick(attempts - 1), 1000);
         } else {
           alert(error.message || "Не удалось отправить комментарий");
-        }
-      })
-      .finally(() => {
-        if (error.message !== "Сервер сломался, попробуй позже" || attempts <= 1) {
           addForm.style.opacity = "1";
           if (addingIndicator) addingIndicator.style.display = "none";
         }
