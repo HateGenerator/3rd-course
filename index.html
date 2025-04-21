@@ -7,16 +7,19 @@
   </head>
   <body>
     <div class="container">
-      <div class="loading-indicator">Загрузка комментариев...</div>
       <ul class="comments"></ul>
-      <div class="add-form">
-        <input type="text" class="add-form-name" placeholder="Введите ваше имя" />
-        <textarea type="textarea" class="add-form-text" placeholder="Введите ваш коментарий" rows="4"></textarea>
+      <div class="loading-indicator">Загрузка комментариев...</div>
+      <div class="auth-message" style="display: none; text-align: center; margin-top: 20px;">
+        Чтобы добавить комментарий, <a href="#" class="login-link">авторизуйтесь</a>.
+      </div>
+      <form class="add-form" style="display: none;">
+        <input type="text" class="add-form-name" readonly />
+        <textarea class="add-form-text" placeholder="Введите ваш комментарий" rows="4"></textarea>
         <div class="add-form-row">
           <button class="add-form-button">Написать</button>
         </div>
-      </div>
-      <div class="adding-indicator">Комментарий добавляется...</div>
+      </form>
+      <div class="adding-indicator" style="display: none;">Комментарий добавляется...</div>
     </div>
     <script type="module" src="./modules/main.js"></script>
   </body>
