@@ -93,13 +93,13 @@ body {
 
 .add-form {
   padding: 20px;
-  margin: 48px auto 0; /* Центрируем форму */
+  margin: 48px auto 0; 
   display: flex;
   flex-direction: column;
-  width: 596px; /* Фиксированная ширина */
-  max-width: 596px; /* Убеждаемся, что ширина не уменьшается */
+  width: 596px; 
+  max-width: 596px; 
   box-sizing: border-box;
-  transition: opacity 0.3s ease; /* Плавное изменение прозрачности */
+  transition: opacity 0.3s ease; 
 }
 
 .add-form-name,
@@ -108,20 +108,20 @@ body {
   font-family: Helvetica;
   border-radius: 8px;
   border: none;
-  width: 100%; /* Поля занимают всю ширину формы */
+  width: 100%; 
   box-sizing: border-box;
 }
 
 .add-form-name {
   padding: 11px 22px;
-  max-width: 300px; /* Ограничиваем поле имени */
+  max-width: 300px; 
 }
 
 .add-form-text {
   margin-top: 12px;
   padding: 22px;
   resize: none;
-  min-height: 80px; /* Минимальная высота текстового поля */
+  min-height: 80px;
 }
 
 .add-form-row {
@@ -149,9 +149,12 @@ body {
   text-align: center;
   padding: 20px;
   font-size: 16px;
-  color: #555;
-  width: 596px; /* Соответствует ширине формы */
-  margin: 0 auto;
+  color: #ffffff; 
+  width: 596px;
+  margin: 20px auto;
+  background: #333; 
+  border-radius: 8px;
+  transition: opacity 0.3s ease; 
 }
 
 @keyframes rotating {
