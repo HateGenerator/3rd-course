@@ -22,17 +22,19 @@ body {
 }
 
 .comment,
-.add-form {
-  width: 596px;
-  box-sizing: border-box;
-  background: radial-gradient(
-    75.42% 75.42% at 50% 42.37%,
-    rgba(53, 53, 53, 0) 22.92%,
-    #7334ea 100%
-  );
-  filter: drop-shadow(0px 20px 67px rgba(0, 0, 0, 0.08));
-  border-radius: 20px;
-}
+.add-form,
+.login-form {
+    width: 596px;
+    box-sizing: border-box;
+    background: radial-gradient(
+      75.42% 75.42% at 50% 42.37%,
+      rgba(53, 53, 53, 0) 22.92%,
+      #7334ea 100%
+    );
+    filter: drop-shadow(0px 20px 67px rgba(0, 0, 0, 0.08));
+    border-radius: 20px;
+  }
+  
 
 .comments {
   display: flex;
@@ -155,6 +157,63 @@ body {
   background: #333; 
   border-radius: 8px;
   transition: opacity 0.3s ease; 
+}
+
+.auth-message {
+  font-size: 16px;
+  color: #ffffff;
+  text-align: center;
+  margin: 20px auto;
+  width: 596px;
+}
+
+.auth-message a {
+  color: #bcec30;
+  text-decoration: none;
+}
+
+.auth-message a:hover {
+  text-decoration: underline;
+}
+
+.login-form {
+  padding: 20px;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.login-form-login,
+.login-form-password {
+  font-size: 16px;
+  font-family: Helvetica;
+  border-radius: 8px;
+  border: none;
+  padding: 11px 22px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.login-form-button {
+  font-size: 24px;
+  padding: 10px 20px;
+  background-color: #bcec30;
+  border: none;
+  border-radius: 18px;
+  cursor: pointer;
+  margin-top: 12px;
+}
+
+.login-form-button:hover {
+  opacity: 0.9;
+}
+
+.error-message {
+  font-size: 16px;
+  color: #ff3333;
+  text-align: center;
+  margin-top: 10px;
 }
 
 @keyframes rotating {

@@ -1,7 +1,6 @@
 import { delay } from "./utils.js";
 
 export function addEventListeners(comments, commentList, commentInput, nameInput, renderComments) {
-  
   commentList.removeEventListener("click", handleClick);
   commentList.addEventListener("click", handleClick);
 
@@ -13,17 +12,22 @@ export function addEventListeners(comments, commentList, commentInput, nameInput
       const index = parseInt(button.dataset.index, 10);
       console.log("Clicked like button, index:", index, "isLiked before:", comments[index].isLiked); // Отладка
 
-      // Провеерка обработки лайка
+      // Проверка авторизации
+      const token = localStorage.getItem("authToken");
+      if (!token) {
+        alert("Требуется авторизация для лайков");
+        return;
+      }
+
+      // Проверка обработки лайка
       if (comments[index].isLikeLoading) {
         console.log("Like is already processing for index:", index);
         return;
       }
 
-      
       comments[index].isLikeLoading = true;
-      renderComments(commentList, commentInput, nameInput); 
+      renderComments(commentList, commentInput, nameInput);
 
-      
       delay(2000).then(() => {
         comments[index].isLiked = !comments[index].isLiked;
         comments[index].likes += comments[index].isLiked ? 1 : -1;
@@ -31,7 +35,7 @@ export function addEventListeners(comments, commentList, commentInput, nameInput
 
         console.log("isLiked after:", comments[index].isLiked, "likes:", comments[index].likes); // Отладка
 
-        renderComments(commentList, commentInput, nameInput); 
+        renderComments(commentList, commentInput, nameInput);
       });
 
       return;
